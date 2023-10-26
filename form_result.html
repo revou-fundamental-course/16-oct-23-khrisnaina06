@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            border-bottom: 2px solid black;
+            text-transform: capitalize;
+        }
+
+        p {
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+        
+        strong {
+            font-weight: bold;
+        }
+        @media only screen and (max-width: 600px) {
+    .container{
+        
+        width: 85%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Data yang Dikirim</h2>
+        <p><strong>Nama:</strong> <span id="name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Nomor Telepon:</strong> <span id="phone"></span></p>
+        <p><strong>Pesan:</strong></p>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        var formJSON = localStorage.getItem('formData');
+        var formData = JSON.parse(formJSON);
+
+        // Menampilkan data di halaman
+        document.getElementById('name').innerText = formData.Name;
+        document.getElementById('email').innerText = formData.Email;
+        document.getElementById('phone').innerText = formData.Phone;
+        document.getElementById('message').innerText = formData.Message;
+
+        // Menghapus data dari penyimpanan lokal setelah ditampilkan
+        localStorage.removeItem('formData');
+    </script>
+</body>
+
+</html>
